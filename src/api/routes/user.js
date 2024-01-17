@@ -134,13 +134,14 @@ async function userRoute(app) {
             return user;
         }
         catch (error) {
+            console.log(error);
             switch (error.code) {
                 case 'P2002':
                     reply.code(409);
                     reply.send({ message: 'Email already exists' });
                 default:
                     reply.code(500);
-                    reply.send({ message: 'An unexpected error occurred', error });
+                    reply.send({ message: 'An unexpected error occurred' });
             }
         }
     });

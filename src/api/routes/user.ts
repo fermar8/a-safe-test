@@ -134,13 +134,14 @@ export default async function userRoute(app: FastifyInstance) {
         reply.code(201)
         return user
       } catch (error: any) {
+        console.log(error)
         switch (error.code) {
           case 'P2002':
             reply.code(409)
             reply.send({ message: 'Email already exists' })
           default:
             reply.code(500)
-            reply.send({ message: 'An unexpected error occurred', error })
+            reply.send({ message: 'An unexpected error occurred' })
         }
       }
     }
