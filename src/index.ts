@@ -32,7 +32,7 @@ export function buildFastify() {
     server.swagger()
   })
 
-  server.listen({ port: 8080 }, (err, address) => {
+  server.listen({ port: Number(process.env.PORT) }, (err, address) => {
     if (err) {
       console.error(err)
       process.exit(1)
