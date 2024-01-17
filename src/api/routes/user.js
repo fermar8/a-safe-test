@@ -140,7 +140,7 @@ async function userRoute(app) {
                     reply.send({ message: 'Email already exists' });
                 default:
                     reply.code(500);
-                    reply.send({ message: 'An unexpected error occurred' });
+                    reply.send({ message: 'An unexpected error occurred', error });
             }
         }
     });
