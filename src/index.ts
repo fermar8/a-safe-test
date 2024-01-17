@@ -32,13 +32,16 @@ export function buildFastify() {
     server.swagger()
   })
 
-  server.listen({ port: Number(process.env.PORT) }, (err, address) => {
-    if (err) {
-      console.error(err)
-      process.exit(1)
+  server.listen(
+    { port: Number(process.env.PORT), host: '0.0.0.0' },
+    (err, address) => {
+      if (err) {
+        console.error(err)
+        process.exit(1)
+      }
+      console.log(`Server listening at ${address}`)
     }
-    console.log(`Server listening at ${address}`)
-  })
+  )
 
   return server
 }

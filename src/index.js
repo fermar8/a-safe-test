@@ -30,7 +30,7 @@ function buildFastify() {
             throw err;
         server.swagger();
     });
-    server.listen({ port: Number(process.env.PORT) }, (err, address) => {
+    server.listen({ port: Number(process.env.PORT), host: '0.0.0.0' }, (err, address) => {
         if (err) {
             console.error(err);
             process.exit(1);
